@@ -10,7 +10,7 @@ const Auth = () => {
     if (name === "email") {
       setEmail(value);
     }
-    if (password === "password") {
+    if (name === "password") {
       setPassword(value);
     }
   };
