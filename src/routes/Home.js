@@ -1,9 +1,15 @@
 import React, { useState } from "react";
+import { dbService } from "myFirebase";
 
 const Home = () => {
   const [noweet, setNoweet] = useState("");
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
+    await dbService.collection("noweets").add({
+      noweet,
+      createdAt: Date.now()
+    });
+    setNoweet("");
   };
   const onChange = (event) => {
     const {
