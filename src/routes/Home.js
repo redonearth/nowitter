@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { dbService } from "myFirebase";
 
-const Home = () => {
+const Home = ({ userObj }) => {
   const [noweet, setNoweet] = useState("");
   const [noweets, setNoweets] = useState([]);
-  const getNoweets = async () => {
-    const dbNoweets = await dbService.collection("noweets").get();
-    dbNoweets.forEach((document) => {
-      const noweetObject = {
-        ...document.data(),
-        id: document.id
-      };
-      setNoweets((prev) => [noweetObject, ...prev]);
-    });
-  };
   useEffect(() => {
-    getNoweets();
+    dbService.collection("noweets").onSnapshot((snapshot) => {
+      const noweetArray = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setNoweets(noweetArray);
+    });
   }, []);
   const onSubmit = async (event) => {
     event.preventDefault();
     await dbService.collection("noweets").add({
-      noweet,
-      createdAt: Date.now()
+      text: noweet,
+      createdAt: Date.now(),
+      creatorId: userObj.uid
     });
     setNoweet("");
   };
@@ -47,7 +44,7 @@ const Home = () => {
       <div>
         {noweets.map((noweet) => (
           <div key={noweet.id}>
-            <h4>{noweet.noweet}</h4>
+            <h4>{noweet.text}</h4>
           </div>
         ))}
       </div>
