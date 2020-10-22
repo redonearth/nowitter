@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { dbService } from "myFirebase";
+import Noweet from "components/Noweet";
 
 const Home = ({ userObj }) => {
   const [noweet, setNoweet] = useState("");
@@ -43,9 +44,11 @@ const Home = ({ userObj }) => {
       </form>
       <div>
         {noweets.map((noweet) => (
-          <div key={noweet.id}>
-            <h4>{noweet.text}</h4>
-          </div>
+          <Noweet
+            key={noweet.id}
+            noweetObj={noweet}
+            isOwner={noweet.creatorId === userObj.uid}
+          />
         ))}
       </div>
     </div>
