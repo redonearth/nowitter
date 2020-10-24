@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { dbService } from "myFirebase";
 import Noweet from "components/Noweet";
 
-const Home = ({ userObj }) => {
+const Home = ({ loggedInUser }) => {
   const [noweet, setNoweet] = useState("");
   const [noweets, setNoweets] = useState([]);
   useEffect(() => {
@@ -19,7 +19,7 @@ const Home = ({ userObj }) => {
     await dbService.collection("noweets").add({
       text: noweet,
       createdAt: Date.now(),
-      creatorId: userObj.uid
+      creatorId: loggedInUser.uid
     });
     setNoweet("");
   };
@@ -47,7 +47,7 @@ const Home = ({ userObj }) => {
           <Noweet
             key={noweet.id}
             noweetObj={noweet}
-            isOwner={noweet.creatorId === userObj.uid}
+            isOwner={noweet.creatorId === loggedInUser.uid}
           />
         ))}
       </div>

@@ -6,7 +6,6 @@ const Noweet = ({ noweetObj, isOwner }) => {
   const [newNoweet, setNewNoweet] = useState(noweetObj.text);
   const onDeleteClick = async () => {
     const ok = window.confirm("Are you sure you want to delete this noweet?");
-    console.log(ok);
     if (ok) {
       await dbService.doc(`noweets/${noweetObj.id}`).delete();
     }
