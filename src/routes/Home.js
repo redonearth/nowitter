@@ -5,6 +5,7 @@ import Noweet from "components/Noweet";
 const Home = ({ loggedInUser }) => {
   const [noweet, setNoweet] = useState("");
   const [noweets, setNoweets] = useState([]);
+  const [photo, setPhoto] = useState();
   useEffect(() => {
     dbService.collection("noweets").onSnapshot((snapshot) => {
       const noweetArray = snapshot.docs.map((doc) => ({
@@ -36,10 +37,14 @@ const Home = ({ loggedInUser }) => {
     const theFile = files[0];
     const reader = new FileReader();
     reader.onloadend = (finishedEvent) => {
-      console.log(finishedEvent);
+      const {
+        currentTarget: { result }
+      } = finishedEvent;
+      setPhoto(result);
     };
     reader.readAsDataURL(theFile);
   };
+  const onCancelAttachmentPhoto = () => setPhoto(null);
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -52,6 +57,12 @@ const Home = ({ loggedInUser }) => {
         />
         <input type="file" accept="image/*" onChange={onFileChange} />
         <input type="submit" value="Noweet" />
+        {photo && (
+          <div>
+            <img src={photo} width="50px" height="50px" alt="" />
+            <button onClick={onCancelAttachmentPhoto}>Cancel upload</button>
+          </div>
+        )}
       </form>
       <div>
         {noweets.map((noweet) => (
