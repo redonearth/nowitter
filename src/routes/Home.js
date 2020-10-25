@@ -29,7 +29,17 @@ const Home = ({ loggedInUser }) => {
     } = event;
     setNoweet(value);
   };
-  console.log(noweets);
+  const onFileChange = (event) => {
+    const {
+      target: { files }
+    } = event;
+    const theFile = files[0];
+    const reader = new FileReader();
+    reader.onloadend = (finishedEvent) => {
+      console.log(finishedEvent);
+    };
+    reader.readAsDataURL(theFile);
+  };
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -40,6 +50,7 @@ const Home = ({ loggedInUser }) => {
           value={noweet}
           onChange={onChange}
         />
+        <input type="file" accept="image/*" onChange={onFileChange} />
         <input type="submit" value="Noweet" />
       </form>
       <div>
