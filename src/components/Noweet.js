@@ -43,6 +43,9 @@ const Noweet = ({ noweetObj, isOwner }) => {
       ) : (
         <>
           <h4>{noweetObj.text}</h4>
+          {noweetObj.photoURL && (
+            <img src={noweetObj.photoURL} width="50px" height="50px" alt="" />
+          )}
           {isOwner && (
             <>
               <button onClick={onDeleteClick}>Delete Noweet</button>
