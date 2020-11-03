@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { dbService } from "myFirebase";
+import { v4 as uuidv4 } from "uuid";
+import { dbService, storageService } from "myFirebase";
 import Noweet from "components/Noweet";
 
 const Home = ({ loggedInUser }) => {
@@ -17,12 +18,17 @@ const Home = ({ loggedInUser }) => {
   }, []);
   const onSubmit = async (event) => {
     event.preventDefault();
-    await dbService.collection("noweets").add({
+    const fileRef = storageService
+      .ref()
+      .child(`${loggedInUser.uid}/${uuidv4()}`);
+    const response = await fileRef.putString(photo, "data_url");
+    console.log(response);
+    /* await dbService.collection("noweets").add({
       text: noweet,
       createdAt: Date.now(),
       creatorId: loggedInUser.uid
     });
-    setNoweet("");
+    setNoweet(""); */
   };
   const onChange = (event) => {
     const {
