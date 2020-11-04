@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { dbService } from "myFirebase";
+import { dbService, storageService } from "myFirebase";
 
 const Noweet = ({ noweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
@@ -8,6 +8,7 @@ const Noweet = ({ noweetObj, isOwner }) => {
     const ok = window.confirm("Are you sure you want to delete this noweet?");
     if (ok) {
       await dbService.doc(`noweets/${noweetObj.id}`).delete();
+      await storageService.refFromURL(noweetObj.photoURL).delete();
     }
   };
   const toggleEditing = () => setEditing((prev) => !prev);
