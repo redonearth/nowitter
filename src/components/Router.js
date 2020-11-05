@@ -16,7 +16,7 @@ const AppRouter = ({ loggedInUser }) => {
               <Home loggedInUser={loggedInUser} />
             </Route>
             <Route exact path="/profile">
-              <Profile />
+              <Profile loggedInUser={loggedInUser} />
             </Route>
           </>
         ) : (
