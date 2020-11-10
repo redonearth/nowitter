@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { authService } from "myFirebase";
 import { useHistory } from "react-router-dom";
 
-export default ({ loggedInUser }) => {
+export default ({ refreshUser, loggedInUser }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(
     loggedInUser.displayName
@@ -21,6 +21,7 @@ export default ({ loggedInUser }) => {
     event.preventDefault();
     if (loggedInUser.displayName !== newDisplayName) {
       await loggedInUser.updateProfile({ displayName: newDisplayName });
+      refreshUser();
     }
   };
   return (
