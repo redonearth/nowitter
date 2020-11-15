@@ -15,9 +15,9 @@ const Home = ({ loggedInUser }) => {
     });
   }, []);
   return (
-    <div>
+    <div className="container">
       <NoweetFactory loggedInUser={loggedInUser} />
-      <div>
+      <div style={{ marginTop: 30 }}>
         {noweets.map((noweet) => (
           <Noweet
             key={noweet.id}
