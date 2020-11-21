@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/nowitter/static/css/main.f3968e27.chunk.css",
+    "main.css": "/nowitter/static/css/main.5b7e9b37.chunk.css",
     "main.js": "/nowitter/static/js/main.0957b4cd.chunk.js",
     "main.js.map": "/nowitter/static/js/main.0957b4cd.chunk.js.map",
     "runtime-main.js": "/nowitter/static/js/runtime-main.a4bb60b2.js",
@@ -8,15 +8,15 @@
     "static/js/2.240433c4.chunk.js": "/nowitter/static/js/2.240433c4.chunk.js",
     "static/js/2.240433c4.chunk.js.map": "/nowitter/static/js/2.240433c4.chunk.js.map",
     "index.html": "/nowitter/index.html",
-    "precache-manifest.758f77ff467c0ca5e0c7da24e1de2dee.js": "/nowitter/precache-manifest.758f77ff467c0ca5e0c7da24e1de2dee.js",
+    "precache-manifest.e45320444426421a64a19a9bdbfedebb.js": "/nowitter/precache-manifest.e45320444426421a64a19a9bdbfedebb.js",
     "service-worker.js": "/nowitter/service-worker.js",
-    "static/css/main.f3968e27.chunk.css.map": "/nowitter/static/css/main.f3968e27.chunk.css.map",
+    "static/css/main.5b7e9b37.chunk.css.map": "/nowitter/static/css/main.5b7e9b37.chunk.css.map",
     "static/js/2.240433c4.chunk.js.LICENSE.txt": "/nowitter/static/js/2.240433c4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a4bb60b2.js",
     "static/js/2.240433c4.chunk.js",
-    "static/css/main.f3968e27.chunk.css",
+    "static/css/main.5b7e9b37.chunk.css",
     "static/js/main.0957b4cd.chunk.js"
   ]
 }

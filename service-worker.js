@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/nowitter/precache-manifest.758f77ff467c0ca5e0c7da24e1de2dee.js"
+  "/nowitter/precache-manifest.e45320444426421a64a19a9bdbfedebb.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "65554516e405a4aa9e7c6ebd0077ddad",
+    "revision": "7052af24acc8b073ea74bb3df21fb443",
     "url": "/nowitter/index.html"
   },
   {
-    "revision": "05cdcd1f157c45fc1af7",
-    "url": "/nowitter/static/css/main.f3968e27.chunk.css"
+    "revision": "3c0ae4b1e36dec3e2ded",
+    "url": "/nowitter/static/css/main.5b7e9b37.chunk.css"
   },
   {
     "revision": "3565b1980d0b2d2fc576",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/nowitter/static/js/2.240433c4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "05cdcd1f157c45fc1af7",
+    "revision": "3c0ae4b1e36dec3e2ded",
     "url": "/nowitter/static/js/main.0957b4cd.chunk.js"
   },
   {
